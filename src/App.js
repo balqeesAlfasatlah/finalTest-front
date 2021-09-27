@@ -9,7 +9,6 @@ import {
 import { withAuth0 } from '@auth0/auth0-react';
 import { Container } from 'react-bootstrap';
 import Home from './components/Home';
-import FavCrypto from './components/FavCrypto';
 import Favourite from './components/Favourite';
 import LoginButton from './components/LoginButton';
 
