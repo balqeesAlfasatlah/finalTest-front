@@ -17,7 +17,7 @@ constructor(props) {
 }
 
 componentDidMount=()=>{
-  let url2 ='http://localhost:4009/getDrink'
+  let url2 =`${process.env.REACT_APP_SERVER}/getDrink`
   axios.get(url2).then(item=>{
     this.setState({
       drinkData : item.data,
@@ -35,7 +35,7 @@ addDrink=(data)=>{
      idDrink : data.idDrink ,
 
   }
-  axios.post('http://localhost:4009/addDrink',newData)
+  axios.post(`${process.env.REACT_APP_SERVER}/addDrink`,newData)
 }
 
 

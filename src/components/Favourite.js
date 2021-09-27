@@ -20,7 +20,7 @@ export class Favourite extends Component {
 
     componentDidMount = () => {
         if(this.props.auth0.isAuthenticated){
-        let url2 = `http://localhost:4009/getData/${this.props.auth0.user.email}`
+        let url2 = `${process.env.REACT_APP_SERVER}/getData/${this.props.auth0.user.email}`
         axios.get(url2).then(element => {
             console.log(element);
             this.setState({
@@ -33,7 +33,7 @@ export class Favourite extends Component {
 
     delete=(index)=>{
         let id = this.state.favData[index]._id;
-        axios.delete(`http://localhost:4009/deleteDrink/${id}`).then(item=>{
+        axios.delete(`${process.env.REACT_APP_SERVER}/deleteDrink/${id}`).then(item=>{
             this.setState({
                 favData: item.data,
                 show: true
@@ -67,7 +67,7 @@ export class Favourite extends Component {
             idDrink : e.target.idDrink.value ,
         }
 
-        axios.put(`http://localhost:4009/updateDrink/${id}` ,data).then(item=>{
+        axios.put(`${process.env.REACT_APP_SERVER}/${id}` ,data).then(item=>{
             this.setState({
                 favData: item.data,
                 
